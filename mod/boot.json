@@ -1,0 +1,41 @@
+{
+  "name": "TestModdedHairAddon",
+  "version": "1.0.0",
+  "styleFileList": [
+  ],
+  "scriptFileList_earlyload": [
+  ],
+  "scriptFileList_inject_early": [
+  ],
+  "scriptFileList_preload": [
+  ],
+  "scriptFileList": [
+  ],
+  "tweeFileList": [
+  ],
+  "imgFileList": [
+  ],
+  "imgFileReplaceList": [
+  ],
+  "additionFile": [
+    "hair.json5"
+  ],
+  "addonPlugin": [
+    {
+      "modName": "ModdedHairAddon",
+      "addonName": "ModdedHairAddon",
+      "modVersion": "^1.0.0",
+      "params": {
+        "hair": [
+          "hair.json5"
+        ]
+      }
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ModdedHairAddon",
+      "version": "^1.0.0"
+    }
+  ]
+}

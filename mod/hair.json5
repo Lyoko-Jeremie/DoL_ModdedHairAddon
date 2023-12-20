@@ -1,0 +1,39 @@
+{
+  "fringe": [
+    {
+      name: "Example hair A",
+      name_cap: "Example hair A",
+      variable: "default",
+      type: [
+        "short"
+      ],
+      shop: [
+        "mirrorhair"
+      ],
+    },
+    {
+      name: "Example hair B",
+      name_cap: "Example hair B",
+      variable: "default",
+      type: [
+        "short"
+      ],
+      shop: [
+        "mirrorhair"
+      ],
+    }
+  ],
+  "sides": [
+    {
+      name: "Example hair C",
+      name_cap: "Example hair C",
+      variable: "default",
+      type: [
+        "short"
+      ],
+      shop: [
+        "mirrorhair"
+      ],
+    }
+  ]
+}

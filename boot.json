@@ -1,0 +1,32 @@
+{
+  "name": "ModdedHairAddon",
+  "version": "1.0.1",
+  "styleFileList": [
+  ],
+  "scriptFileList_earlyload": [
+  ],
+  "scriptFileList_inject_early": [
+    "dist/ModdedHairAddon.js"
+  ],
+  "scriptFileList_preload": [
+  ],
+  "scriptFileList": [
+  ],
+  "tweeFileList": [
+  ],
+  "imgFileList": [
+  ],
+  "imgFileReplaceList": [
+  ],
+  "additionFile": [
+    "README.md"
+  ],
+  "addonPlugin": [
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ModLoader",
+      "version": "^1.6.1||^2.0.0"
+    }
+  ]
+}
