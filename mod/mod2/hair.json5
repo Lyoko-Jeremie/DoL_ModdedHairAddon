@@ -1,0 +1,55 @@
+{
+  "fringe": [
+    {
+        name: "widow",
+	    name_cap: "Widow",
+	    variable: "widow",
+	    type: ["loose"],
+	    shop: ["mirrorhair"],
+	},
+    {
+        name: "rey",
+		name_cap: "Rey",
+		variable: "rey",
+		type: ["loose"],
+		shop: ["mirrorhair"],
+    },
+    {
+    	name: "loose bangs",
+    	name_cap: "Loose bangs",
+    	variable: "loose bangs",
+    	type: ["loose", "wavy"],
+    	shop: ["mirrorhair"],
+	},
+  ],
+  "sides": [
+    {
+		name: "blackscale",
+		name_cap: "Blackscale",
+		variable: "blackscale",
+		type: ["loose"],
+		shop: ["mirrorhair"],
+	},
+	{
+		name: "wind",
+		name_cap: "Wind",
+		variable: "wind",
+		type: ["loose"],
+		shop: ["mirrorhair"],
+    },
+    {
+    	name: "big twintails",
+    	name_cap: "Big twintails",
+    	variable: "big twintails",
+    	type: ["wavy"],
+    	shop: ["mirrorhair"],
+	},
+	{
+    	name: "white ribbon",
+    	name_cap: "White ribbon",
+    	variable: "white ribbon",
+    	type: ["wavy"],
+    	shop: ["mirrorhair"],
+	},
+  ]
+}

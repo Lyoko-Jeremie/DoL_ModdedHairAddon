@@ -6,7 +6,7 @@ import type {SC2DataManager} from "../../../dist-BeforeSC2/SC2DataManager";
 import type {ModUtils} from "../../../dist-BeforeSC2/Utils";
 import JSZip from "jszip";
 import * as JSON5 from "json5";
-import {get, set, has, isString, isArray, every, isNil, cloneDeep} from 'lodash';
+import {get, set, has, isString, isArray, every, isNil, cloneDeep, clone} from 'lodash';
 import {checkHairItem, checkParams} from "./ModdedHairAddonParams";
 import {HairObject} from "./winDef";
 
@@ -106,8 +106,13 @@ export class ModdedHairAddon implements LifeTimeCircleHook, AddonPluginHookPoint
             this.logger.error(`[ModdedHairAddon] window.DOL.setup.hairTraits not found`);
             return;
         }
+        console.log('[ModdedHairAddon] init() hair start', [
+            cloneDeep(get(window.DOL.setup, 'hairstyles')),
+            cloneDeep(get(window.DOL.setup, 'hairTraits')),
+        ]);
         try {
             for (const [k, v] of this.hairData) {
+                console.log('[ModdedHairAddon] init() hair merge', [k, v]);
                 appendHairObject(get(window.DOL.setup, 'hairstyles'), v, this.logger);
             }
         } catch (e) {
@@ -125,11 +130,11 @@ export class ModdedHairAddon implements LifeTimeCircleHook, AddonPluginHookPoint
             console.error('[ModdedHairAddon] init() hairTraits error', [e]);
             this.logger.error(`[ModdedHairAddon] init() hairTraits error: ${e}`);
         }
-        console.log('[ModdedHairAddon] init() feats end', [
-            get(window.DOL.setup, 'hairstyles'),
-            get(window.DOL.setup, 'hairTraits'),
+        console.log('[ModdedHairAddon] init() hair end', [
+            cloneDeep(get(window.DOL.setup, 'hairstyles')),
+            cloneDeep(get(window.DOL.setup, 'hairTraits')),
         ]);
-        this.logger.log(`[ModdedHairAddon] init() feats end`);
+        this.logger.log(`[ModdedHairAddon] init() hair end`);
     }
 }
 
@@ -139,11 +144,20 @@ export class ModdedHairAddon implements LifeTimeCircleHook, AddonPluginHookPoint
 export function mergeHairObject(b: HairObject, o: HairObject, modName: string, logger: LogWrapper) {
     const out = cloneDeep(b);
     for (const k in o) {
-        if (has(out, k)) {
-            console.error(`[ModdedHairAddon] mergeHairObject() key already exists, will be overwrite. `, [modName, k, cloneDeep(b), cloneDeep(o)]);
-            logger.error(`[ModdedHairAddon] mergeHairObject() key already exists, will be overwrite: [${modName}] [${k}]`);
+        if (has(b, k)) {
+            const hairsB = out[k];
+            const hairsO = o[k];
+            for (const h of hairsO) {
+                const nn = hairsB.find((T) => T.name === h.name);
+                if (nn) {
+                    console.warn(`[ModdedHairAddon] mergeHairObject() key already exists, will be overwrite. `, [k, cloneDeep(nn), cloneDeep(hairsB), cloneDeep(hairsO), cloneDeep(h)]);
+                    logger.warn(`[ModdedHairAddon] mergeHairObject() key already exists, will be overwrite: [${k}] [${nn.name}]`);
+                }
+                hairsB.push(h);
+            }
+        } else {
+            set(out, k, get(o, k));
         }
-        set(out, k, get(o, k));
     }
     return out;
 }
@@ -151,9 +165,18 @@ export function mergeHairObject(b: HairObject, o: HairObject, modName: string, l
 export function appendHairObject(b: HairObject, o: HairObject, logger: LogWrapper) {
     for (const k in o) {
         if (has(b, k)) {
-            console.warn(`[ModdedHairAddon] appendHairObject() key already exists, will be overwrite. `, [k, cloneDeep(b), cloneDeep(o)]);
-            logger.warn(`[ModdedHairAddon] appendHairObject() key already exists, will be overwrite: [${k}]`);
+            const hairsB = b[k];
+            const hairsO = o[k];
+            for (const h of hairsO) {
+                const nn = hairsB.find((T) => T.name === h.name);
+                if (nn) {
+                    console.warn(`[ModdedHairAddon] appendHairObject() key already exists, will be overwrite. `, [k, cloneDeep(nn), cloneDeep(hairsB), cloneDeep(hairsO), cloneDeep(h)]);
+                    logger.warn(`[ModdedHairAddon] appendHairObject() key already exists, will be overwrite: [${k}] [${nn.name}]`);
+                }
+                hairsB.push(h);
+            }
+        } else {
+            set(b, k, get(o, k));
         }
-        set(b, k, get(o, k));
     }
 }

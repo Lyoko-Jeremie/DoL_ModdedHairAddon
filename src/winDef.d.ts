@@ -10,7 +10,7 @@ export interface HairItem {
     shop: string[],
 }
 
-export type HairObject = { [key: string]: HairItem };
+export type HairObject = { [key: string]: HairItem[] };
 
 declare global {
     interface Window {

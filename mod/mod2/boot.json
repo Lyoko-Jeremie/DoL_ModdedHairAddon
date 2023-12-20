@@ -1,0 +1,94 @@
+{
+  "name": "NewHairParil",
+  "version": "1.0.0",
+  "tweeFileList": [],
+  "imgFileList": [],
+  "styleFileList": [],
+  "scriptFileList_earlyload": [],
+  "scriptFileList_inject_early": [],
+  "scriptFileList_preload": [],
+  "scriptFileList": [],
+  "tweeFileList": [],
+  "imgFileList": [],
+  "imgFileReplaceList": [],
+  "additionFile": [
+    "hair.json5"
+  ],
+  "additionBinaryFile": [
+  ],
+  "additionDir": [],
+  "addonPlugin": [
+    {
+      "modName": "ModdedHairAddon",
+      "addonName": "ModdedHairAddon",
+      "modVersion": "^1.0.0",
+      "params": {
+        "hair": [
+          "hair.json5"
+        ]
+      }
+    },
+    {
+      "modName": "BeautySelectorAddon",
+      "addonName": "BeautySelectorAddon",
+      "modVersion": "^2.0.0",
+      "params": {
+        "type": "newhairparil",
+        "imgFileList": [
+            "img/hair/fringe/loose bangs/chest.png",
+            "img/hair/fringe/loose bangs/feet.png",
+            "img/hair/fringe/loose bangs/navel.png",
+            "img/hair/fringe/loose bangs/shoulder.png",
+            "img/hair/fringe/loose bangs/short.png",
+            "img/hair/fringe/loose bangs/thighs.png",
+            "img/hair/fringe/rey/chest.png",
+            "img/hair/fringe/rey/feet.png",
+            "img/hair/fringe/rey/navel.png",
+            "img/hair/fringe/rey/shoulder.png",
+            "img/hair/fringe/rey/short.png",
+            "img/hair/fringe/rey/thighs.png",
+            "img/hair/fringe/widow/feet.png",
+            "img/hair/fringe/widow/navel.png",
+            "img/hair/fringe/widow/chest.png",
+            "img/hair/fringe/widow/short.png",
+            "img/hair/fringe/widow/thighs.png",
+            "img/hair/fringe/widow/shoulder.png",
+            "img/hair/sides/big twintails/feet.png",
+            "img/hair/sides/big twintails/chest.png",
+            "img/hair/sides/big twintails/navel.png",
+            "img/hair/sides/big twintails/short.png",
+            "img/hair/sides/big twintails/shoulder.png",
+            "img/hair/sides/big twintails/thighs.png",
+            "img/hair/sides/blackscale/navel.png",
+            "img/hair/sides/blackscale/chest.png",
+            "img/hair/sides/blackscale/feet.png",
+            "img/hair/sides/blackscale/short.png",
+            "img/hair/sides/blackscale/shoulder.png",
+            "img/hair/sides/blackscale/thighs.png",
+            "img/hair/sides/white ribbon/feet.png",
+            "img/hair/sides/white ribbon/chest.png",
+            "img/hair/sides/white ribbon/navel.png",
+            "img/hair/sides/white ribbon/short.png",
+            "img/hair/sides/white ribbon/shoulder.png",
+            "img/hair/sides/white ribbon/thighs.png",
+            "img/hair/sides/wind/chest.png",
+            "img/hair/sides/wind/feet.png",
+            "img/hair/sides/wind/navel.png",
+            "img/hair/sides/wind/shoulder.png",
+            "img/hair/sides/wind/short.png",
+            "img/hair/sides/wind/thighs.png"
+        ],
+      }
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ModdedHairAddon",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "BeautySelectorAddon",
+      "version": "^2.0.0"
+    }
+  ]
+}
